@@ -1,0 +1,13 @@
+.your-table-container {
+    margin-top: 20px;
+}
+
+.delete-button {
+    &:hover {
+        background-color: #dc3545;
+    }
+}
+
+table, td {
+    border: 2px solid black;
+}

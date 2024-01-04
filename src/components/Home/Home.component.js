@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import WeatherTable from "../Weather-Table/WeatherTable.component";
-
-import "./home.style.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { getWeatherReport } from "../../redux-toolkit/slice/weather.slice";
+import WeatherCard from "../WeatherCard/WeatherCard.component";
+
+import "./home.style.scss";
 
 function Home() {
     const [cityName, setCityName] = useState({ cityname: "" })
@@ -25,16 +25,18 @@ function Home() {
 
     return (
         <div className="home-container">
-            <WeatherTable
-                data={{
-                    city: weather?.name,
-                    temperature: ((Number(weather?.main?.temp) - 32) * 5 / 9),
-                    windspeed: weather?.wind?.speed
-                }}
-            />
             <label>ENTER CITY NAME: </label>
             <input type="text" name="cityname" value={cityName.cityname} onChange={handleChange} />
             <button onClick={handleApiRequest}>Get Weather Report</button>
+            <WeatherCard
+                data={{
+                    city: weather?.name,
+                    temperature: ((Number(weather?.main?.temp) - 32) * 5 / 9),
+                    windspeed: weather?.wind?.speed,
+                    icon: weather?.weather[0]?.icon,
+                    description: weather?.weather[0]?.description
+                }}
+            />
         </div>
     )
 }

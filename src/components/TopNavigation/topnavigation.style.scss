@@ -3,8 +3,13 @@
     flex-direction: row;
     gap: 25px;
     background-color: aquamarine;
+    height: 50px;
+    align-items: center;
 
     a {
         text-decoration: none;
+        &:hover {
+            color: red;
+        }
     }
 }

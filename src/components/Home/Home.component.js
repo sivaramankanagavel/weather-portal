@@ -36,7 +36,7 @@ function Home() {
 
     return (
         <div className="home-container">
-            <label>ENTER CITY NAME: </label>
+            <label>Enter City Name </label>
             <input type="text" name="cityname" value={cityName.cityname} onChange={handleChange} />
             <button className="weather-button" onClick={handleApiRequest}>Get Weather Report</button>
 

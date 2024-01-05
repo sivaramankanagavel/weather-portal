@@ -3,18 +3,20 @@ import Table from 'react-bootstrap/Table';
 import { useSelector, useDispatch } from 'react-redux';
 import Button from 'react-bootstrap/Button';
 import { BiTrash } from 'react-icons/bi'
-import { cityActions } from '../../redux-toolkit/slice/cities.slice';
+import { removeCity } from '../../redux-toolkit/slice/cities.slice';
 
 import './citytable.style.scss';
 
 
+
 function CityTable() {
     const dispatch = useDispatch()
-    const cities = useSelector((state) => state.city.cities)
-
+    const cities = useSelector((state) => state.city.userCityDetails)
+    const userAuth = useSelector((state) => state.signIn.signInCredential)
 
     const dipacthDeleteCity = (index) => {
-        dispatch(cityActions.removeCity(index))
+        const city = cities[index]
+        dispatch(removeCity({ userAuth, city }))
     }
 
     return (

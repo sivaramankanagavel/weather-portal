@@ -1,16 +1,44 @@
 .home-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-  
-    h1 {
-      font-size: 24px;
-      margin-bottom: 20px;
-    }
-  
-    .weather-table {
-      width: 100%; 
-      max-width: 600px;
-    }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
   }
+
+  .weather-table {
+    width: 100%;
+    max-width: 600px;
+  }
+
+  .weather-button {
+    margin-top: 25px;
+  }
+}
+
+.allcity-details {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+}
+
+.weather-card-withoutSignIn {
+  width: 100%;
+  margin-top: 30px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.container-fluid {
+  width: 20%;
+  border: 2px solid black;
+  margin-top: 30px;
+  background-color: greenyellow;
+}

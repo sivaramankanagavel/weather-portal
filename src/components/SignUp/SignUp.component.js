@@ -8,7 +8,8 @@ const initialState = {
     displayName: "",
     email: "",
     password: "",
-    confirmPassword: ""
+    confirmPassword: "",
+    favCities: []
 }
 
 function SignUp() {
@@ -16,9 +17,7 @@ function SignUp() {
     const signUpDone = useSelector(state=> state.signUp.isSignUp)
     const signUpData = useSelector(state=> state.signUp.signUpData)
     const dispatch = useDispatch()
-    const { displayName, email, password, confirmPassword } = formField;
-
-    console.log(signUpDone, signUpData)
+    const { displayName, email, password, confirmPassword, favCities } = formField;
 
     // Take care of the instant changes from input field
 
@@ -43,7 +42,7 @@ function SignUp() {
         if (password === confirmPassword) {
 
             try {
-                dispatch(getSignUp(email, password, displayName))
+                dispatch(getSignUp({email, password, displayName, favCities}))
                 resetField()
             } catch (err) {
                 console.log(err)

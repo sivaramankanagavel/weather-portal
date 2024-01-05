@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getSignIn } from "../../redux-toolkit/slice/signin.slice";
+import { getCityDetails } from "../../redux-toolkit/slice/cities.slice";
 
 import "./signin.style.scss";
 
@@ -16,7 +17,9 @@ function SignIn() {
     const signInCredential = useSelector((state) => state.signIn.signInCredential)
     const { email, password } = formField
 
-    console.log(signInSuccess, signInCredential)
+    useEffect(()=>{
+        dispatch(getCityDetails({signInCredential}))
+    },[signInSuccess])
 
     const handleChange = (event) => {
         const { name, value } = event?.target;
@@ -35,7 +38,7 @@ function SignIn() {
         event.preventDefault();
 
         try {
-            dispatch(getSignIn(email, password))
+            dispatch(getSignIn({ email, password }))
             resetField()
         } catch (err) {
             console.log(err)
